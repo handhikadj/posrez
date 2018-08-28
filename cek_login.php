@@ -1,5 +1,4 @@
 <?php
-// error_reporting(0);
 include "config/koneksi.php";
 $pass=$_POST['password'];
 $username = $_POST['nama_admin'];
@@ -21,6 +20,3 @@ $r=mysqli_fetch_array($login);
 		echo "<script>window.alert('Username atau Password anda salah.');
 					window.location='index.php'</script>";
 	}
-
-
-?>
