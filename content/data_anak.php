@@ -11,7 +11,7 @@ if (empty($_GET['act'])) : ?>
 		<?php endif ?>
 
 		<div class="table-responsive">
-			<table class="table table-bordered" id="table_anak">
+			<table class="table table-bordered table-blocked" id="table_anak">
 				<thead>
 					<tr>
 						<th>NIB</th>
@@ -61,7 +61,6 @@ if (empty($_GET['act'])) : ?>
 							<td><?php echo $row['lingkar_kepala'];?></td>
 							<?php if (!empty($_SESSION["nama_admin"])): ?>
 								<td>
-									<a href="?module=dataanak&act=edit&id=<?php echo $row['id_anak'];?>" class="btn btn-default">Edit</a> 
 									<a href="content/aksi_anak.php?module=anak&act=hapus&id=<?php echo $row['id_anak'];?>" onclick="return confirm('Apakah anda yakin akan menghapus data ini?')"  class="btn btn-danger">Hapus</a>
 								</td>
 							<?php endif ?>
@@ -79,7 +78,11 @@ if (empty($_GET['act'])) : ?>
 							<td><?php echo $row['berat_lahir'];?></td>
 							<td><?php echo $row['lingkar_kepala'];?></td>
 							<?php if (!empty($_SESSION["nama_admin"])): ?>
-								<td><a href="?module=dataanak&act=edit&id=<?php echo $row['id_anak'];?>" class="btn btn-default">Edit</a> <a href="content/aksi_anak.php?module=anak&act=hapus&id=<?php echo $row['id_anak'];?>" onclick="return confirm('Apakah anda yakin akan menghapus data ini?')"  class="btn btn-danger">Hapus</a></td>
+								<td>
+									<a href="?module=dataanak&act=edit&id=<?php echo $row['id_anak'];?>" class="btn btn-default">Edit</a>
+									
+									<a href="content/aksi_anak.php?module=anak&act=hapus&id=<?php echo $row['id_anak'];?>" onclick="return confirm('Apakah anda yakin akan menghapus data ini?')"  class="btn btn-danger">Hapus</a>
+								</td>
 							<?php endif ?>
 						</tr>
 						<?php endif ?>
@@ -131,9 +134,14 @@ if (empty($_GET['act'])) : ?>
 			</div>
 			<div class="form-group">
 				<label for="inputPassword3" class="col-sm-4 control-label">Jenis Kelamin</label>
-				<div class="col-sm-8">
-					<input type="text" class="form-control" name='jenis_kelamin'>
-				</div>
+				<label class="radio-inline" for="l" style="margin-left: 20px;">
+					<input type="radio" id="l" name='jenis_kelamin' value="Laki-laki">
+					Laki-laki
+				</label>
+				<label class="radio-inline" for="p">
+					<input type="radio" id="p" name='jenis_kelamin' value="Perempuan">
+					Perempuan
+				</label>
 			</div>
 			<div class="form-group">
 				<label for="inputPassword3" class="col-sm-4 control-label">Nama Ibu</label>
@@ -187,6 +195,7 @@ if (empty($_GET['act'])) : ?>
 	$row  = mysqli_fetch_array($hasil);
 	?>
 
+
 	<h4 style="text-align: center;">EDIT DATA</h4><hr><br>
 	<div class="col-md-6 col-sm-offset-2 ">
 		<form class="form-horizontal" method="post" action="content/aksi_anak.php?module=anak&act=edit">
@@ -201,43 +210,48 @@ if (empty($_GET['act'])) : ?>
 			<div class="form-group">
 				<label for="inputPassword3" class="col-sm-4 control-label">Nama</label>
 				<div class="col-sm-8">
-					<input type="text" class="form-control"  value="<?php echo $row['nama_anak'];?>" name='nama_anak'>
+					<input type="text" class="form-control" value="<?php echo $row['nama_anak'];?>" name='nama_anak'>
 				</div>
 			</div>
 			<div class="form-group">
 				<label for="inputPassword3" class="col-sm-4 control-label">Tanggal Lahir</label>
 				<div class="col-sm-8">
-					<input type="date" class="form-control"  value="<?php echo $row['tanggal_lahir'];?>" name='tanggal_lahir'>
+					<input type="date" class="form-control" value="<?php echo $row['tanggal_lahir'];?>" name='tanggal_lahir'>
 				</div>
 			</div>
 			<div class="form-group">
 				<label for="inputPassword3" class="col-sm-4 control-label">Jenis Kelamin</label>
-				<div class="col-sm-8">
-					<input type="text" class="form-control" value="<?php echo $row['jenis_kelamin'];?>" name='jenis_kelamin'>
-				</div>
+				<label class="radio-inline" for="l" style="margin-left: 20px;">
+				<input type="radio" id="l" name='jenis_kelamin' value="Laki-laki" <?php echo $row['jenis_kelamin'] == 'Laki-laki' ? 'checked' : '' ?> >
+				Laki-laki
+				</label>
+				<label class="radio-inline" for="p">
+				<input type="radio" id="p" name='jenis_kelamin' value="Perempuan" <?php echo $row['jenis_kelamin'] == 'Perempuan' ? 'checked' : '' ?> >
+				Perempuan
+				</label>
 			</div>
 			<div class="form-group">
 				<label for="inputPassword3" class="col-sm-4 control-label">Nama Ibu</label>
 				<div class="col-sm-8">
-					<input type="text" class="form-control"  value="<?php echo $row['nama_ibu'];?>" name='nama_ibu'>
+					<input type="text" class="form-control" value="<?php echo $row['nama_ibu'];?>" name='nama_ibu'>
 				</div>
 			</div>
 			<div class="form-group">
 				<label for="inputPassword3" class="col-sm-4 control-label">Nama Ayah</label>
 				<div class="col-sm-8">
-					<input type="text" class="form-control"  value="<?php echo $row['nama_ayah'];?>" name='nama_ayah'>
+					<input type="text" class="form-control" value="<?php echo $row['nama_ayah'];?>" name='nama_ayah'>
 				</div>
 			</div>
 			<div class="form-group">
 				<label for="inputPassword3" class="col-sm-4 control-label">Alamat</label>
 				<div class="col-sm-8">
-					<input type="text" class="form-control"   value="<?php echo $row['alamat'];?>" name='alamat'>
+					<input type="text" class="form-control" value="<?php echo $row['alamat'];?>" name='alamat'>
 				</div>
 			</div>
 			<div class="form-group">
 				<label for="inputPassword3" class="col-sm-4 control-label">Panjang Badan</label>
 				<div class="col-sm-8">
-					<input type="text" class="form-control"    value="<?php echo $row['panjang_badan'];?>" name='panjang_badan'>
+					<input type="text" class="form-control" value="<?php echo $row['panjang_badan'];?>" name='panjang_badan'>
 				</div>
 			</div>
 			<div class="form-group">

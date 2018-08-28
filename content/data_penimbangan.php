@@ -13,7 +13,7 @@ if (empty($_GET['act'])) : ?>
 		</div>
 
 		<div class="table-responsive">
-			<table class="table table-bordered" id="table_penimbangan">
+			<table class="table table-bordered table-blocked" id="table_penimbangan">
 				<thead>
 					<tr>
 						<th>Kode Timbang</th>
@@ -101,7 +101,7 @@ if (empty($_GET['act'])) : ?>
 				<label for="inputPassword3" class="col-sm-4 control-label">NIB</label>
 				<div class="col-sm-8">
 					<div class="ui-widget">
-						<input type="text" class="form-control" name='id_anak'  id="id_anaktimbang" >
+						<input type="text" class="form-control" name='id_anak' id="id_anaktimbang1">
 					</div>
 				</div>
 			</div>
@@ -179,12 +179,13 @@ if (empty($_GET['act'])) : ?>
 			<div class="form-group">
 				<label for="inputPassword3" class="col-sm-4 control-label">Saran</label>
 				<div class="col-sm-8">
-					<input type="text" class="form-control"   name="saran">
+					<input type="text" class="form-control" name="saran">
 				</div>
 			</div>
 			<div class="form-group">
 				<div class="col-sm-offset-4 col-sm-10">
-					<input type="submit" class="btn btn-success" value="Simpan"> <input type="reset" class="btn btn-danger" value="Reset">
+					<input type="submit" class="btn btn-success" value="Simpan" id="submit_penimbangan">
+					<input type="reset" class="btn btn-danger" value="Reset">
 				</div>
 
 			</div>
@@ -222,13 +223,13 @@ if (empty($_GET['act'])) : ?>
 			<div class="form-group">
 				<label for="inputPassword3" class="col-sm-4 control-label">Nama</label>
 				<div class="col-sm-8">
-					<input type="text" disabled class="form-control" value="<?php echo $row2['nama_anak'];?>" id="nama_anak">
+					<input type="text" class="form-control" value="<?php echo $row2['nama_anak'];?>" id="nama_anak" disabled>
 				</div>
 			</div>
 			<div class="form-group">
 				<label for="inputPassword3" class="col-sm-4 control-label">Tanggal Lahir</label>
 				<div class="col-sm-8">
-					<input type="date" disabled class="form-control" value="<?php echo $row2['tanggal_lahir'];?>"  >
+					<input type="date" class="form-control" value="<?php echo $row2['tanggal_lahir'];?>"  disabled>
 				</div>
 			</div>
 			<div class="form-group">

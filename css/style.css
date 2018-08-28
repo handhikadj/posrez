@@ -2,15 +2,11 @@ body{
     background:#9E9E9E;
 }
 
-table {
+.table-blocked {
     display: block;
     overflow-x: auto;
     white-space: nowrap;
 }
-
-/*.tooltip-right {
-    left: 1000;
-}*/
 
 [role="tooltip"] {
     background: black;

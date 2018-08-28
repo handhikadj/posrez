@@ -7,22 +7,6 @@ if (empty($_GET['act'])) : ?>
 		<?php if (!empty($_SESSION['nama_admin'])): ?>
 			<a href="?module=datakematian&act=tambah" class="btn btn-success ">Tambah</a><br><br>
 		<?php endif ?>
-		<?php
-		$query = mysqli_query($db, "SELECT COUNT(*) jumData from kematian");
-		$data = mysqli_fetch_array($query);
-		$jumlahData = $data["jumData"];
-
-		$dataperPage = 5;
-		if(isset($_GET['hal']))
-		{
-			$noPage= $_GET['hal'];
-		}
-		else
-		{
-			$noPage=1;
-		}
-		$offset = ($noPage-1)*$dataperPage;
-		?>
 		<div class="table-responsive">
 			<table class="table table-bordered" id="table_kematian">
 				<thead>
@@ -52,7 +36,6 @@ if (empty($_GET['act'])) : ?>
 							<td><?php echo $row['keterangan'];?></td>
 							<?php if (!empty($_SESSION['nama_admin'])): ?>
 							<td>
-								<!-- <a href="?module=datakematian&act=edit&id=<?php echo $row['id_kematian'];?>" class="btn btn-default">Edit</a> -->
 								<a href="content/aksi_kematian.php?module=anak&act=hapus&id=<?php echo $row['id_kematian'];?>" onclick="return confirm('Apakah anda yakin akan menghapus data ini?')"  class="btn btn-danger">Hapus</a>
 							</td>
 							<?php endif ?>
@@ -61,12 +44,7 @@ if (empty($_GET['act'])) : ?>
 
 				</tbody>
 			</table>
-			<!-- <nav>
-				<ul class="pagination ">
-					<?php include 'content/view_kematian.php';?>
-				</ul>
-			</nav>
- -->		</div>
+			</div>
 		<br>
 	</div>
 
@@ -97,7 +75,7 @@ if (empty($_GET['act'])) : ?>
 				<div class="form-group">
 					<label for="inputEmail3" class="col-sm-4 control-label">NIB</label>
 					<div class="col-sm-8">
-						<input type="text" class="form-control" name="id_anak" id="id_anaktimbang">
+						<input type="text" class="form-control" name="id_anak" id="id_anaktimbang2">
 
 					</div>
 				</div>
@@ -109,7 +87,7 @@ if (empty($_GET['act'])) : ?>
 					</div>
 				</div>
 				<div class="form-group">
-					<label for="inputPassword3" class="col-sm-4 control-label">Tanggal Lahir</label>
+					<label for="inputPassword3" class="col-sm-4 control-label">Tanggal Kematian</label>
 					<div class="col-sm-8">
 						<input type="date" class="form-control"   name='tanggal_kematian'>
 					</div>
@@ -123,7 +101,8 @@ if (empty($_GET['act'])) : ?>
 
 				<div class="form-group">
 					<div class="col-sm-offset-4 col-sm-10">
-						<input type="submit" class="btn btn-success" value="Simpan"> <input type="reset" class="btn btn-danger" value="Reset">
+						<input type="submit" class="btn btn-success" value="Simpan" id="submit_penimbangan">
+						<input type="reset" class="btn btn-danger" value="Reset">
 					</div>
 
 				</div>
