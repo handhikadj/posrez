@@ -14,23 +14,6 @@ include 'config/koneksi.php';
 <link rel="stylesheet" type="text/css" href="js/datatables.min.css">
 <link href="css/style.css" rel="stylesheet">
 <link href="js/jquery-ui.min.css">
-<style type="text/css">
-	ul.ui-autocomplete {
-    	list-style: none;
-	}
-
-	.ui-autocomplete {
-		background-color: rgba(255, 255, 255, 0.9);
-		z-index: 99999;
-		width: 30px;
-		box-shadow: 0 0 3px -2px #000, 0 6px 6px -6px #000;
-	}
-
-	.ui-menu .ui-menu-item > * {
-		padding: 2px;
-	}
-</style>
-
 </head>
 
 <body>
@@ -40,7 +23,7 @@ include 'config/koneksi.php';
 		<div class="col-md-12">
 			<header>
 				<img width='100%' src="image/header.jpg">
-				<nav class="navbar navbar-default navbar-default">
+				<nav id="willFixed" class="navbar navbar-default navbar-default">
 					<div class="navbar-header">
 						<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
 							<span class="sr-only">Toggle navigation</span>
@@ -49,7 +32,7 @@ include 'config/koneksi.php';
 							<span class="icon-bar"></span>
 						</button>
 					</div>
-					<div id="navbar" class="navbar-collapse collapse">
+					<div id="navbar" class="navbar-collapse collapse navbar-scrollers">
 						<ul class="nav navbar-nav">
 					    	<?php if(empty($_SESSION["nama_admin"])) :
 					    		include 'listHeaderNotLogin.php';

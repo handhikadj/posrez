@@ -46,8 +46,8 @@ $row2=mysqli_fetch_array($tampil2);
 				$tampil=mysqli_query($db, "SELECT id_penimbangan, 
 					DATE_FORMAT(tanggal_timbang, '%d-%m-%Y') as tanggal, 
 					usia, 
-					jenis_vitamin,
-					usia_wajib FROM penimbangan JOIN vitamin ON penimbangan.id_imunisasi=vitamin.id_vitamin WHERE id_anak='$syarat'");
+					jenis_vitamin
+					FROM penimbangan JOIN vitamin ON penimbangan.id_imunisasi=vitamin.id_vitamin WHERE id_anak='$syarat'");
 				while($row=mysqli_fetch_array($tampil)){
 					?>
 					<tr>

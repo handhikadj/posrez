@@ -46,31 +46,32 @@ $(function() {
 	$("#id_anaktimbang1, #id_anaktimbang2").on("keydown", function(e){
 		if (e.keyCode == 13 || e.keyCode == 9) {
 
-			var id = $("#id_anaktimbang1, #id_anaktimbang2").val();                
+			var id = $("#id_anaktimbang1, #id_anaktimbang2").val()  
 
 			$.ajax({
 				url: 'proses-ajax.php',
 				data: "id="+id ,
 				dataType: "JSON",
 				success: function (data) {
+					if (!data) $("#id_anaktimbang1, #id_anaktimbang2").val('B0')
 					if (data.stat == 1) {
 						swal({ 
 							title: "Anak ini sudah meninggal",
 							icon: "info",
 							timer: 1000
 						})
+						$("#id_anaktimbang, #id_anaktimbang1, #id_anaktimbang2").val("B0");
 						$('#nama_anak').val('')
 						$('#tanggal_lahir').val('')
 						$('#jenis_kelamin').val('')
 						$('#submit_penimbangan').prop('disabled', true)
-					} 
-					else {
+					} else {
 						$('#nama_anak').val(data.nama_anak)
 						$('#tanggal_lahir').val(data.tanggal_lahir)
 						$('#jenis_kelamin').val(data.jenis_kelamin)
 						$('#submit_penimbangan').prop('disabled', false)
 					}
-				}
+				},
 			});
 		}
 	});
@@ -85,10 +86,13 @@ $(function() {
 				dataType: "JSON",
 				success: function( data ) {
 					response( $.map (data, function( item ) {
-						return { 
-							label: item.id_anak, 
-							value: item.id_anak,
+						if (item.id_anak) {
+							return {
+								label: item.id_anak,
+								value: item.id_anak,
+							}
 						}
+						return "Data tidak ada"
 					}));
 				},
 				error: function() {
@@ -104,4 +108,9 @@ $(function() {
 		e.preventDefault();
 	});
 
+	$(window).scroll(function(){
+		if ($(this).scrollTop() > 225) $("#navbar.navbar-scrollers").addClass('fixed');
+		else $("#navbar.navbar-scrollers").removeClass('fixed');
+		
+	})
 });

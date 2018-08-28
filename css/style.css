@@ -2,6 +2,51 @@ body{
     background:#9E9E9E;
 }
 
+ul.ui-autocomplete {
+    list-style: none;
+}
+
+.ui-autocomplete {
+    background-color: rgba(255, 255, 255, 0.9);
+    z-index: 99999;
+    width: 30px;
+    box-shadow: 0 0 3px -2px #000, 0 6px 6px -6px #000;
+    max-height: 200px;
+    overflow-y: auto;
+    padding-left: 2px;
+}
+
+.ui-menu .ui-menu-item > * {
+    padding: 8px;
+}
+
+.ui-state-hover {
+    background: red;
+}
+
+.fixed {
+    background: darkgreen;
+    padding: 0 20px;
+    position:fixed; top:0; left:50; z-index:2; 
+    width: 84.4%;
+    animation: slidenav 0.55s cubic-bezier(.65,.05,.36,1);
+}
+
+@keyframes slidenav{
+    0% {
+        transform: translateY(-50px);
+        opacity: 0;
+    } 50% {
+        transform: translateY(0);
+        padding-top: 10px;
+        opacity: 1;
+    } 75% {
+        transform: translateY(-15px);
+    } 100% {
+        transform: translateY(0);
+    }
+}
+
 .table-blocked {
     display: block;
     overflow-x: auto;

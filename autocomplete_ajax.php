@@ -14,7 +14,7 @@ if ($ketemu) {
 		$data[] = $row;
 	}
 } else {
-		$data['message'] = "Data tidak ada";
+	$data[]['message'] = "Data tidak ditemukan";
 }
 
 echo json_encode($data);

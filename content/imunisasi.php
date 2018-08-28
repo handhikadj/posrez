@@ -41,11 +41,11 @@ $row2=mysqli_fetch_array($tampil2);
 			</thead>
 			<tbody>
 				<?php 
-				$tampil=mysqli_query($db, "SELECT id_penimbangan, 
+				$tampil = mysqli_query($db, "SELECT id_penimbangan, 
 					DATE_FORMAT(tanggal_timbang, '%d-%m-%Y') as tanggal, 
 					usia, 
-					jenis_imunisasi,
-					usia_wajib FROM penimbangan JOIN imunisasi ON penimbangan.id_imunisasi=imunisasi.id_imunisasi WHERE id_anak='$syarat'");
+					jenis_imunisasi
+					FROM penimbangan JOIN imunisasi ON penimbangan.id_imunisasi=imunisasi.id_imunisasi WHERE id_anak='$syarat'");
 				while($row=mysqli_fetch_array($tampil)) :
 					?>
 					<tr>
@@ -58,11 +58,6 @@ $row2=mysqli_fetch_array($tampil2);
 
 			</tbody>
 		</table>
-		<!-- <nav>
-			<ul class="pagination ">
-				<?php include 'content/view_anak.php';?>
-			</ul>
-		</nav> -->
 	</div>
 	<br>
 </div>

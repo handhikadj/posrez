@@ -18,7 +18,7 @@ document.location='../?module=dataanak';
 // Input format
 elseif ($module=='anak' AND $act=='input'){
 	
-    mysqli_query($db, "INSERT INTO anak (id_anak,
+	mysqli_query($db, "INSERT INTO anak (id_anak,
 										nama_anak,
 										tanggal_lahir,
 										jenis_kelamin,
