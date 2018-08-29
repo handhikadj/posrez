@@ -75,11 +75,11 @@ elseif ($module=='siswabaru' AND $act=='update'){
 }elseif ($module =='cekimunisasi' AND $act=='input') {
 	$kampus = $_POST['id_anak'];
 
-	header("location:../?module=imunisasi&id=$_POST[id_anak]");
+	header("location:../?module=cekimunisasi&id=$_POST[id_anak]");
 }elseif ($module =='cekvitamin' AND $act=='input') {
 	$kampus = $_POST['id_anak'];
 
-	header("location:../?module=vitamin&id=$_POST[id_anak]");
+	header("location:../?module=cekvitamin&id=$_POST[id_anak]");
 }
 
 

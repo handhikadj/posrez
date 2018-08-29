@@ -1,47 +1,47 @@
 <style>
-    .header {border-bottom:solid 1px #666; height:85px; width:100%; margin:auto; margin-bottom:20px;}
-    .header img { overflow:hidden;width:50px!important;height:30px!important; float:left; margin-left:20px;margin-right:-30px; margin-top:10px;}
-    img.img2 {margin-left:650px; margin-top:-75px}
-    .header h3{font-family:Times, serif;font-size:30px; line-height:30px; text-align:center; margin-left:20px; margin-top:20px;  text-transform:uppercase}
-    .header p {text-align:center;  margin-left:-60px;padding:1px!important; }
-    .header span {padding-top:10px;}
-    .ttd2{
-        float:left;
-        margin-left:550px;
-        margin-top:-90px;
-    }
-    h4{
-        text-align:center;
-    }
-    #table-a
-    { 
-        font-size: 12px;
-        width: 10%;
-        text-align: center;
-        border-collapse: collapse;
-        margin: 10px auto;
-        border:1px;
+.header {border-bottom:solid 1px #666; height:85px; width:100%; margin:auto; margin-bottom:20px;}
+.header img { overflow:hidden;width:50px!important;height:30px!important; float:left; margin-left:20px;margin-right:-30px; margin-top:10px;}
+img.img2 {margin-left:650px; margin-top:-75px}
+.header h3{font-family:Times, serif;font-size:30px; line-height:30px; text-align:center; margin-left:20px; margin-top:20px;  text-transform:uppercase}
+.header p {text-align:center;  margin-left:-60px;padding:1px!important; }
+.header span {padding-top:10px;}
+.ttd2{
+    float:left;
+    margin-left:550px;
+    margin-top:-90px;
+}
+h4{
+    text-align:center;
+}
+#table-a
+{ 
+    font-size: 12px;
+    width: 10%;
+    text-align: center;
+    border-collapse: collapse;
+    margin: 10px auto;
+    border:1px;
 
-    }
-    #table-a th
-    { font-size: 12px;
-        font-weight: normal;
-        padding: 5px;
-        border:1px;
+}
+#table-a th
+{ font-size: 12px;
+    font-weight: normal;
+    padding: 5px;
+    border:1px;
 
-        color: #000;
-    }
-    #table-a td,#table-a td 
-    { padding: 8px;
-        border:1px;
-        font-size: 10px;
-        color: #000;
-        text-align:left;
-    }
-    #bod{
-        width:750px;
+    color: #000;
+}
+#table-a td,#table-a td 
+{ padding: 8px;
+    border:1px;
+    font-size: 10px;
+    color: #000;
+    text-align:left;
+}
+#bod{
+    width:750px;
 
-    }
+}
 </style>
 <?php 
 $data	= "SELECT * FROM anak";

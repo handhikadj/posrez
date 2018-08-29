@@ -56,18 +56,17 @@ h4{
         </tr>
     </thead>
     <tbody>
-     <?php
-
-     $sql = mysqli_query($db, "SELECT kematian.id_kematian,
-       anak.nama_anak, 
-       DATE_FORMAT(kematian.tanggal_kematian, '%d-%m-%Y') as tanggal,
-       kematian.keterangan FROM kematian JOIN anak ON kematian.id_anak=anak.id_anak ") or die (mysqli_error());
-     
-     while ($datapost=mysqli_fetch_array($sql)) {
-        $idkematian = strip_tags($datapost['id_kematian']);
-        $namaanak = strip_tags($datapost['nama_anak']);
-        $tanggal = strip_tags($datapost['tanggal']);
-        $keterangan = strip_tags($datapost['keterangan']);
+        <?php
+        $sql = mysqli_query($db, "SELECT kematian.id_kematian,
+           anak.nama_anak, 
+           DATE_FORMAT(kematian.tanggal_kematian, '%d-%m-%Y') as tanggal,
+           kematian.keterangan FROM kematian JOIN anak ON kematian.id_anak=anak.id_anak ") or die (mysqli_error());
+         
+        while ($datapost=mysqli_fetch_array($sql)) {
+            $idkematian = strip_tags($datapost['id_kematian']);
+            $namaanak = strip_tags($datapost['nama_anak']);
+            $tanggal = strip_tags($datapost['tanggal']);
+            $keterangan = strip_tags($datapost['keterangan']);
         ?>
         <tr>
             <td><?php echo $idkematian;?></td>

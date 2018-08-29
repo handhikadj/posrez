@@ -1,10 +1,16 @@
+$(window).on('load', function(){
+	$("#form-immune").hide();
+	$("#hide-form-immune").hide();
+	$(".form_in_tdimmune").hide()
+})
+
 $(function() {
 
 	$("#id_anaktimbang, #id_anaktimbang1, #id_anaktimbang2").val("B0");
 
 	$('[data-toggle="tooltip"]').tooltip();
 
-	$('#table_anak, #table_imunisasi, #table_perbalita, #table_kematian, #table_penimbangan, #table_vitamin')
+	$('#table_anak, #table_imunisasi, #table_perbalita, #table_kematian, #table_penimbangan, #table_vitamin, #table_lihat_immune')
 	.DataTable({
 		language: {
 			"sProcessing":   "<i class='fas fa-spinner fa-spin fa-5x'></i>",
@@ -56,9 +62,9 @@ $(function() {
 					if (!data) $("#id_anaktimbang1, #id_anaktimbang2").val('B0')
 					if (data.stat == 1) {
 						swal({ 
-							title: "Anak ini sudah meninggal",
+							title: "Anak ini sudah meninggal. Silahkan memilih anak yang lain",
 							icon: "info",
-							timer: 1000
+							timer: 1500
 						})
 						$("#id_anaktimbang, #id_anaktimbang1, #id_anaktimbang2").val("B0");
 						$('#nama_anak').val('')
@@ -110,7 +116,24 @@ $(function() {
 
 	$(window).scroll(function(){
 		if ($(this).scrollTop() > 225) $("#navbar.navbar-scrollers").addClass('fixed');
-		else $("#navbar.navbar-scrollers").removeClass('fixed');
-		
+		else $("#navbar.navbar-scrollers").removeClass('fixed');		
+	})
+
+	$("#show-form-immune").click(function(e){
+		$("#form-immune").show("slow");
+		$(this).delay(250).hide(350)
+		$("#hide-form-immune").show(450);
+		$("#input_durate").focus()
+	})
+
+	$("#hide-form-immune").click(function(e){
+		$("#form-immune").hide("slow");
+		$(this).delay(700).hide(450)
+		$("#show-form-immune").delay(710).show(200);
+	})
+
+	$(".for_imune_patch").click(function(e){
+		e.stopPropagation()
+		$(".form_in_tdimmune").toggle()
 	})
 });

@@ -1,49 +1,49 @@
 <style>
-    .header {border-bottom:solid 1px #666; height:85px; width:100%; margin:auto; margin-bottom:20px;}
-    .header img { overflow:hidden;width:50px!important;height:30px!important; float:left; margin-left:20px;margin-right:-30px; margin-top:10px;}
-    img.img2 {margin-left:650px; margin-top:-75px}
-    .header h3{font-family:Times, serif;font-size:30px; line-height:30px; text-align:center; margin-left:20px; margin-top:20px;  text-transform:uppercase}
-    .header p {text-align:center;  margin-left:-60px;padding:1px!important; }
-    .header span {padding-top:10px;}
-    .ttd2 {
-        float:left;
-        margin-left:550px;
-        margin-top:-90px;
-    }
+.header {border-bottom:solid 1px #666; height:85px; width:100%; margin:auto; margin-bottom:20px;}
+.header img { overflow:hidden;width:50px!important;height:30px!important; float:left; margin-left:20px;margin-right:-30px; margin-top:10px;}
+img.img2 {margin-left:650px; margin-top:-75px}
+.header h3{font-family:Times, serif;font-size:30px; line-height:30px; text-align:center; margin-left:20px; margin-top:20px;  text-transform:uppercase}
+.header p {text-align:center;  margin-left:-60px;padding:1px!important; }
+.header span {padding-top:10px;}
+.ttd2 {
+    float:left;
+    margin-left:550px;
+    margin-top:-90px;
+}
 
-    h4 {
-        text-align:center;
-    }
+h4 {
+    text-align:center;
+}
 
-    #table-a {
-        font-size: 12px;
-        width: 10%;
-        text-align: center;
-        border-collapse: collapse;
-        margin: 10px auto;
-        border:1px;
-    }
+#table-a {
+    font-size: 12px;
+    width: 10%;
+    text-align: center;
+    border-collapse: collapse;
+    margin: 10px auto;
+    border:1px;
+}
 
-    #table-a th { 
-        font-size: 12px;
-        font-weight: normal;
-        padding: 5px;
-        border:1px;
+#table-a th { 
+    font-size: 12px;
+    font-weight: normal;
+    padding: 5px;
+    border:1px;
 
-        color: #000;
-    }
-    #table-a td,#table-a td { 
-        padding: 8px;
-        border:1px;
-        font-size: 10px;
-        color: #000;
-        text-align:left;
-    }
+    color: #000;
+}
+#table-a td,#table-a td { 
+    padding: 8px;
+    border:1px;
+    font-size: 10px;
+    color: #000;
+    text-align:left;
+}
 
-    #bod {
-        width:750px;
+#bod {
+    width:750px;
 
-    }
+}
 </style>
 <?php 
 $data	= "SELECT * FROM anak";
@@ -69,24 +69,21 @@ $row	= mysqli_fetch_array($hasil);
         </tr>
     </thead>
     <tbody>
-     <?php 
-//$nosppt=mysqli_real_escape_string($db, $_GET['nosppt']);
-     $sql = mysqli_query($db, "SELECT id_anak, nama_anak, DATE_FORMAT(tanggal_lahir, '%d-%m-%Y') as tanggal, jenis_kelamin, nama_ibu, nama_ayah, alamat, panjang_badan, berat_lahir, lingkar_kepala FROM anak") or die (mysql_error());
-//$sql=mysqli_query($db, "select * from penduduk order by nama desc");$no=0;
-     $tgl=date("d-m-Y");
+        <?php 
+        $sql = mysqli_query($db, "SELECT id_anak, nama_anak, DATE_FORMAT(tanggal_lahir, '%d-%m-%Y') as tanggal, jenis_kelamin, nama_ibu, nama_ayah, alamat, panjang_badan, berat_lahir, lingkar_kepala FROM anak") or die (mysql_error());
+        $tgl=date("d-m-Y");
 
-     while($datapost=mysqli_fetch_array($sql)){
-        $idcek = strip_tags($datapost['id_anak']);
-        $tanggal= strip_tags($datapost['nama_anak']);
-        $kategori = strip_tags($datapost['tanggal']);
-        $nama = strip_tags($datapost['jenis_kelamin']);
-        $alamat = strip_tags($datapost['nama_ibu']);
-        $reg= strip_tags($datapost['nama_ayah']);
-        $umur = strip_tags($datapost['alamat']);
-        $panjang = strip_tags($datapost['panjang_badan']);
-        $berat = strip_tags($datapost['berat_lahir']);
-        $lingkar = strip_tags($datapost['lingkar_kepala']);
-
+        while($datapost=mysqli_fetch_array($sql)){
+            $idcek = strip_tags($datapost['id_anak']);
+            $tanggal= strip_tags($datapost['nama_anak']);
+            $kategori = strip_tags($datapost['tanggal']);
+            $nama = strip_tags($datapost['jenis_kelamin']);
+            $alamat = strip_tags($datapost['nama_ibu']);
+            $reg= strip_tags($datapost['nama_ayah']);
+            $umur = strip_tags($datapost['alamat']);
+            $panjang = strip_tags($datapost['panjang_badan']);
+            $berat = strip_tags($datapost['berat_lahir']);
+            $lingkar = strip_tags($datapost['lingkar_kepala']);
         ?>
         <tr>
             <td><?PHP echo $idcek;?></td>
@@ -99,7 +96,6 @@ $row	= mysqli_fetch_array($hasil);
             <td><?PHP echo $panjang;?></td>
             <td><?PHP echo $berat;?></td>
             <td><?PHP echo $lingkar;?></td>
-            
         </tr>
         <?PHP }?>
     </tbody>

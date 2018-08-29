@@ -11,7 +11,6 @@ if (empty($_GET['act'])) : ?>
 			<?php endif ?>
 			<br><br>
 		</div>
-
 		<div class="table-responsive">
 			<table class="table table-bordered table-blocked" id="table_penimbangan">
 				<thead>
@@ -43,10 +42,9 @@ if (empty($_GET['act'])) : ?>
 						JOIN imunisasi 
 						ON penimbangan.id_imunisasi=imunisasi.id_imunisasi 
 						JOIN vitamin 
-						ON penimbangan.id_imunisasi=vitamin.id_vitamin");
+						ON penimbangan.id_vitamin=vitamin.id_vitamin");
 
-					while($row=mysqli_fetch_array($tampil)) :
-						?>
+					while($row=mysqli_fetch_array($tampil)) : ?>
 						<tr>
 							<td><?php echo $row['id_penimbangan'];?></td>
 							<td><?php echo $row['tanggal'];?></td>

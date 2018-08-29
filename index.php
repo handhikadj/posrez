@@ -14,6 +14,12 @@ include 'config/koneksi.php';
 <link rel="stylesheet" type="text/css" href="js/datatables.min.css">
 <link href="css/style.css" rel="stylesheet">
 <link href="js/jquery-ui.min.css">
+
+<script type="text/javascript">
+    var elm=document.getElementsByTagName("html")[0];
+    elm.style.display="none";
+    document.addEventListener("DOMContentLoaded",function(event) { elm.style.display="block"; });
+</script>
 </head>
 
 <body>
@@ -37,12 +43,10 @@ include 'config/koneksi.php';
 					    	<?php if(empty($_SESSION["nama_admin"])) :
 					    		include 'listHeaderNotLogin.php';
 					    	?>
-						</ul>
-					    <?php else : ?>
-					    <ul class="nav navbar-nav">
-					    	<?php include 'list_header.php';
-					    endif ?>
-						</ul>
+					    	<?php else : 
+					    	include 'list_header.php';
+					    	endif ?>
+					    </ul>
 					</div>
 				</nav>
 			</header>

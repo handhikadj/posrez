@@ -9,9 +9,13 @@ if (empty($_GET['module'])) {
 	include 'content/data_penimbangan.php';
 }elseif ($_GET['module']=='vitamin') {
 	include 'content/vitamin.php';
+}elseif ($_GET['module']=='cekvitamin') {
+	include 'content/vitamin.php';
 }elseif ($_GET['module']=='perbalita') {
 	include 'content/perbalita.php';
 }elseif ($_GET['module']=='imunisasi') {
+	include 'content/imunisasi.php';
+}elseif ($_GET['module']=='cekimunisasi') {
 	include 'content/imunisasi.php';
 }elseif ($_GET['module']=='datakematian') {
 	include 'content/data_kematian.php';

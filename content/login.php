@@ -1,5 +1,5 @@
 <?php
-if(empty($_SESSION['nama_admin'])) {
+if(empty($_SESSION['nama_admin'])) :
 ?>
 <h3 style="text-align: center;"></h3><br>
 <div class="col-md-6 col-sm-offset-2 ">
@@ -25,8 +25,8 @@ if(empty($_SESSION['nama_admin'])) {
   </form><br>
 
 </div>
-<?php } else { ?>
+<?php else : ?>
 <script type="text/javascript">
     window.location.href = '?module=home';
 </script>
-<?php } ?>
+<?php endif ?>

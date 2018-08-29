@@ -7,11 +7,29 @@
 <li>
 	<a href="?module=penimbangan"><i class="glyphicon glyphicon-tasks"></i> Penimbangan</a>
 </li>
-<li>
-	<a href="?module=imunisasi"><i class="glyphicon glyphicon-pushpin"></i> Imunisasi</a>
+<li class="dropdown">
+	<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><i class="glyphicon glyphicon-pushpin"></i> Imunisasi<span class="caret" style="margin-left: 5px;"></span></a>
+
+    <ul class="dropdown-menu">
+        <li>
+            <a href="?module=imunisasi"> Lihat Data Imunisasi</a>
+        </li>
+        <li>
+            <a href="?module=cekimunisasi"> Cek Imunisasi</a>
+        </li>
+    </ul>
 </li>
-<li>
-	<a href="?module=vitamin"><i class="glyphicon glyphicon-tint"></i>  Vitamin</a>
+<li class="dropdown">
+	<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><i class="glyphicon glyphicon-tint"></i>  Vitamin<span class="caret" style="margin-left: 5px;"></span></a>
+
+    <ul class="dropdown-menu">
+        <li>
+            <a href="?module=vitamin"> Lihat Data Vitamin</a>
+        </li>
+        <li>
+            <a href="?module=cekvitamin"> Cek Vitamin</a>
+        </li>
+    </ul>
 </li>
 <li>
 	<a href="?module=datakematian"><i class="glyphicon glyphicon-file"></i> Kematian</a>

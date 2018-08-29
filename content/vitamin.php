@@ -1,8 +1,65 @@
 <?php 
+$module=$_GET['module'];
 $syarat=$_GET['id'] ?? '' ;
 $tampil2=mysqli_query($db, "SELECT *  FROM anak WHERE id_anak='$syarat'");
 $row2=mysqli_fetch_array($tampil2);
+
+if ($module == 'vitamin') : 
 ?>
+
+<h4 style="text-align: center;">LIHAT VITAMIN</h4><hr><br>
+<div class="container-immune">
+	<form 
+	id="form-immune"
+	action="content/aksi_vitamin.php?module=vitamin&act=input"
+	method="POST">
+		<div class="col-sm-8" style="padding-right: 3px;">
+			<input type="text" id="input_durate" name="input_vitamin" class="form-control" placeholder="Jenis Imunisasi">
+		</div>
+		<button class="btn btn-success">SUBMIT</button>
+	</form>
+	<button id="show-form-immune" class="btn btn-info btn-styled">
+		<i class="glyphicon glyphicon-plus glyph-styled"></i>
+		Tambah Jenis Vitamin
+	</button>
+	<button id="hide-form-immune" class="btn btn-danger">
+		<i class="glyphicon glyphicon-remove glyph-styled"></i>
+		Tutup
+	</button>
+</div>
+<div class="col-md-6 col-sm-offset-3">
+	<div class="table-responsive">
+		<table class="table table-bordered" id="table_lihat_immune">
+			<thead>
+				
+				<tr>
+					<th>Jenis Vitamin</th>
+					<th>Aksi</th>
+				</tr>
+				
+			</thead>
+			<tbody>
+				<?php 
+				$tampil3 = mysqli_query($db, "SELECT * FROM vitamin");
+				while ($row3 = mysqli_fetch_assoc($tampil3)) : ?>
+				<tr>
+					<td><?php echo $row3['jenis_vitamin'] ?></td>
+					<?php 
+					if (!empty($_SESSION["nama_admin"])) : ?>
+						<td id="for_tdimune">
+							<!-- <a href="?module=imunisasi&act=edit&id=<?php echo $row3['id_imunisasi'];?>" class="btn btn-default">Perbarui</a>  -->
+							<a href="javascript:void(0)" class="btn btn-default for_imune_patch">Perbarui</a>
+							<a href="content/aksi_vitamin.php?module=vitamin&act=delete&id=<?php echo $row3['id_vitamin'];?>" onclick="return confirm('Apakah anda yakin akan menghapus data ini?')"  class="btn btn-danger">Hapus</a>
+						</td>
+					<?php endif ?>
+				</tr>				 
+				<?php endwhile ?>
+			</tbody>
+		</table>
+	</div>
+</div>
+
+<?php else : ?>
 <h4 style="text-align: center;">CEK VITAMIN</h4><hr><br>
 <div class="col-md-6 col-sm-offset-0 ">
 	<form class="form-horizontal" method="post" action="content/aksi_penimbangan.php?module=cekvitamin&act=input">
@@ -28,7 +85,6 @@ $row2=mysqli_fetch_array($tampil2);
 		</div>
 	</form>
 </div>
-
 <div class="col-md-12">
 	<h1><?php echo $row2['id_anak'] ." - " .$row2['nama_anak']; ?></h1>
 	<div class="table-responsive">
@@ -47,7 +103,7 @@ $row2=mysqli_fetch_array($tampil2);
 					DATE_FORMAT(tanggal_timbang, '%d-%m-%Y') as tanggal, 
 					usia, 
 					jenis_vitamin
-					FROM penimbangan JOIN vitamin ON penimbangan.id_imunisasi=vitamin.id_vitamin WHERE id_anak='$syarat'");
+					FROM penimbangan JOIN vitamin ON penimbangan.id_vitamin=vitamin.id_vitamin WHERE id_anak='$syarat'");
 				while($row=mysqli_fetch_array($tampil)){
 					?>
 					<tr>
@@ -63,3 +119,4 @@ $row2=mysqli_fetch_array($tampil2);
 	</div>
 	<br>
 </div>
+<?php endif ?>

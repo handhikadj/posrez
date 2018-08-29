@@ -1,10 +1,67 @@
 <?php 
+$module=$_GET['module'];
 $syarat=$_GET['id'] ?? '';
-$tampil2=mysqli_query($db, "SELECT *  FROM anak WHERE id_anak='$syarat'");
+$tampil2=mysqli_query($db, "SELECT * FROM anak WHERE id_anak='$syarat'");
 $row2=mysqli_fetch_array($tampil2);
+
+if ($module == 'imunisasi') : 
 ?>
+<h4 style="text-align: center;">LIHAT IMUNISASI</h4><hr><br>
+<div class="container-immune">
+	<form 
+	id="form-immune"
+	action="content/aksi_imunisasi.php?module=imunisasi&act=input"
+	method="POST">
+		<div class="col-sm-8" style="padding-right: 3px;">
+			<input type="text" id="input_durate" name="input_immune" class="form-control" placeholder="Jenis Imunisasi">
+		</div>
+		<button class="btn btn-success">SUBMIT</button>
+	</form>
+	<button id="show-form-immune" class="btn btn-info btn-styled">
+		<i class="glyphicon glyphicon-plus glyph-styled"></i>
+		Tambah Jenis Imunisasi
+	</button>
+	<button id="hide-form-immune" class="btn btn-danger">
+		<i class="glyphicon glyphicon-remove glyph-styled"></i>
+		Tutup
+	</button>
+</div>
+<div class="col-md-6 col-sm-offset-3">
+	<div class="table-responsive">
+		<table class="table table-bordered" id="table_lihat_immune">
+			<thead>
+				
+				<tr>
+					<th>Jenis Imunisasi</th>
+					<th>Aksi</th>
+				</tr>
+				
+			</thead>
+			<tbody>
+				<?php 
+				$tampil3 = mysqli_query($db, "SELECT * FROM imunisasi");
+				while ($row3 = mysqli_fetch_assoc($tampil3)) : ?>
+				<tr>
+					<td><?php echo $row3['jenis_imunisasi'] ?></td>
+					<?php 
+					if (!empty($_SESSION["nama_admin"])) : ?>
+						<td id="for_tdimune">
+							<!-- <a href="?module=imunisasi&act=edit&id=<?php echo $row3['id_imunisasi'];?>" class="btn btn-default">Perbarui</a>  -->
+							<a href="javascript:void(0)" class="btn btn-default for_imune_patch">Perbarui</a>
+							<a href="content/aksi_imunisasi.php?module=imunisasi&act=delete&id=<?php echo $row3['id_imunisasi'];?>" onclick="return confirm('Apakah anda yakin akan menghapus data ini?')"  class="btn btn-danger">Hapus</a>
+						</td>
+					<?php endif ?>
+				</tr>				 
+				<?php endwhile ?>
+			</tbody>
+		</table>
+	</div>
+</div>
+
+<?php else : ?>
+
 <h4 style="text-align: center;">CEK IMUNISASI</h4><hr><br>
-<div class="col-md-6 col-sm-offset-0 ">
+<div class="col-md-6">
 	<form class="form-horizontal" method="post" action="content/aksi_penimbangan.php?module=cekimunisasi&act=input">
 
 		<div class="form-group">
@@ -61,3 +118,4 @@ $row2=mysqli_fetch_array($tampil2);
 	</div>
 	<br>
 </div>
+<?php endif ?>

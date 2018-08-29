@@ -68,7 +68,6 @@ $row	= mysqli_fetch_array($hasil);
     </tbody>
 </table>
 
-
 <table id="table-a">
     <thead>
         <tr><th width="60">Kode Timbang</th>
@@ -78,34 +77,30 @@ $row	= mysqli_fetch_array($hasil);
             <th width="100">Lingkar Perut</th>
             <th width="150">Jenis Imunisasi</th>
             <th width="150" >Jenis Vitamin</th>
-            <th width="220" >Saran</th>
-            
+            <th width="220" >Saran</th>           
         </tr>
     </thead>
     <tbody>
-     <?php 
+        <?php 
+        $sql = mysqli_query($db, "SELECT id_penimbangan,
+           nama_anak, 
+           DATE_FORMAT(tanggal_lahir, '%d-%m-%Y') as tanggal,
+           usia,
+           berat_badan,
+           lingkar_perut,
+           jenis_imunisasi,
+           jenis_vitamin,
+           saran FROM penimbangan JOIN anak ON penimbangan.id_anak=anak.id_anak JOIN imunisasi ON penimbangan.id_imunisasi=imunisasi.id_imunisasi JOIN vitamin ON penimbangan.id_vitamin=vitamin.id_vitamin WHERE penimbangan.id_anak='$id'") or die (mysqli_error());
 
-     $sql = mysqli_query($db, "SELECT id_penimbangan,
-       nama_anak, 
-       DATE_FORMAT(tanggal_lahir, '%d-%m-%Y') as tanggal,
-       usia,
-       berat_badan,
-       lingkar_perut,
-       jenis_imunisasi,
-       jenis_vitamin,
-       saran FROM penimbangan JOIN anak ON penimbangan.id_anak=anak.id_anak JOIN imunisasi ON penimbangan.id_imunisasi=imunisasi.id_imunisasi JOIN vitamin ON penimbangan.id_vitamin=vitamin.id_vitamin WHERE penimbangan.id_anak='$id'") or die (mysql_error());
-
-     while($datapost=mysqli_fetch_array($sql)) {
-        $idcek = strip_tags($datapost['id_penimbangan']);
-        $kategori = strip_tags($datapost['tanggal']);
-        $nama = strip_tags($datapost['usia']);
-        $alamat = strip_tags($datapost['berat_badan']);
-        $reg= strip_tags($datapost['lingkar_perut']);
-        $umur = strip_tags($datapost['jenis_imunisasi']);
-        $panjang = strip_tags($datapost['jenis_vitamin']);
-        $berat = strip_tags($datapost['saran']);
-
-
+        while($datapost=mysqli_fetch_array($sql)) {
+            $idcek = strip_tags($datapost['id_penimbangan']);
+            $kategori = strip_tags($datapost['tanggal']);
+            $nama = strip_tags($datapost['usia']);
+            $alamat = strip_tags($datapost['berat_badan']);
+            $reg= strip_tags($datapost['lingkar_perut']);
+            $umur = strip_tags($datapost['jenis_imunisasi']);
+            $panjang = strip_tags($datapost['jenis_vitamin']);
+            $berat = strip_tags($datapost['saran']);
         ?>
         <tr>
             <td><?PHP echo $idcek;?></td>
@@ -115,9 +110,7 @@ $row	= mysqli_fetch_array($hasil);
             <td><?PHP echo $reg;?></td>
             <td><?PHP echo $umur;?></td>
             <td><?PHP echo $panjang;?></td>
-            <td><?PHP echo $berat;?></td>
-
-            
+            <td><?PHP echo $berat;?></td>  
         </tr>
         <?PHP }?>
     </tbody>
