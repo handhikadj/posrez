@@ -1,10 +1,12 @@
 <?php 
+
 $module=$_GET['module'];
 $syarat=$_GET['id'] ?? '' ;
 $tampil2=mysqli_query($db, "SELECT *  FROM anak WHERE id_anak='$syarat'");
 $row2=mysqli_fetch_array($tampil2);
 
 if ($module == 'vitamin') : 
+require_once 'vitamin_modal.php';	
 ?>
 
 <h4 style="text-align: center;">LIHAT VITAMIN</h4><hr><br>
@@ -14,7 +16,7 @@ if ($module == 'vitamin') :
 	action="content/aksi_vitamin.php?module=vitamin&act=input"
 	method="POST">
 		<div class="col-sm-8" style="padding-right: 3px;">
-			<input type="text" id="input_durate" name="input_vitamin" class="form-control" placeholder="Jenis Imunisasi">
+			<input type="text" id="input_durate" name="input_vitamin" class="form-control" placeholder="Jenis Vitamin" style="text-transform: uppercase;">
 		</div>
 		<button class="btn btn-success">SUBMIT</button>
 	</form>
@@ -46,9 +48,12 @@ if ($module == 'vitamin') :
 					<td><?php echo $row3['jenis_vitamin'] ?></td>
 					<?php 
 					if (!empty($_SESSION["nama_admin"])) : ?>
-						<td id="for_tdimune">
-							<!-- <a href="?module=imunisasi&act=edit&id=<?php echo $row3['id_imunisasi'];?>" class="btn btn-default">Perbarui</a>  -->
-							<a href="javascript:void(0)" class="btn btn-default for_imune_patch">Perbarui</a>
+						<td>
+							<a href="javascript:void(0)" 
+							class="btn btn-default for_vitamin_patch"
+							data-toggle="modal"
+							data-target="#modal-vitamin"
+							rel=" <?php echo $row3['id_vitamin']; ?> ">Perbarui</a>
 							<a href="content/aksi_vitamin.php?module=vitamin&act=delete&id=<?php echo $row3['id_vitamin'];?>" onclick="return confirm('Apakah anda yakin akan menghapus data ini?')"  class="btn btn-danger">Hapus</a>
 						</td>
 					<?php endif ?>

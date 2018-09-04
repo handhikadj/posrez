@@ -135,7 +135,7 @@ $(function() {
 	$(".for_imune_patch").click(function(){
 		var id_imunisasi = $(this).attr("rel")
 		$.ajax({
-			url: "../content/ajax_modal_imunisasi.php?id_imunisasi=" + id_imunisasi,
+			url: "../content/ajax_modal_imunisasi.php?id_imunisasi="+ id_imunisasi,
 			type: "GET",
 			dataType: "JSON",
 			success: function(response) {
@@ -154,9 +154,46 @@ $(function() {
 		var id_imunisasi = $(".for_imune_patch").attr("rel"),
 			update_immune = $(this).serialize()
 		$.ajax({
-			url: "../content/ajax_update_imunisasi.php?id_imunisasi=" + id_imunisasi,
+			url: "../content/ajax_update_imunisasi.php?id_imunisasi="+ id_imunisasi,
 			type: "POST",
 			data: update_immune,
+			dataType: "JSON",
+			success: function(response) {
+				alert(response.message)
+				location.reload()
+			},
+			error: function() {
+				alert('Terjadi Error');
+			}
+		});
+
+	})
+
+	$(".for_vitamin_patch").click(function(){
+		var id_vitamin = $(this).attr("rel")
+		$.ajax({
+			url: "../content/ajax_modal_vitamin.php?id_vitamin="+ id_vitamin,
+			type: "GET",
+			dataType: "JSON",
+			success: function(response) {
+				console.log(response.data.jenis_vitamin)
+				$("#patchvitamin-in-modal").val(response.data.jenis_vitamin)
+			},
+			error: function() {
+				alert('Terjadi Error');
+			}
+		});
+	})
+
+	$("#form-patch-vitamin").submit(function(e){
+		e.preventDefault()
+
+		var id_vitamin = $(".for_vitamin_patch").attr("rel"),
+			update_vitamin = $(this).serialize()
+		$.ajax({
+			url: "../content/ajax_update_vitamin.php?id_vitamin="+ id_vitamin,
+			type: "POST",
+			data: update_vitamin,
 			dataType: "JSON",
 			success: function(response) {
 				alert(response.message)

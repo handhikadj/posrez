@@ -15,7 +15,7 @@ require_once 'imunisasi_modal.php';
 	action="content/aksi_imunisasi.php?module=imunisasi&act=input"
 	method="POST">
 		<div class="col-sm-8" style="padding-right: 3px;">
-			<input type="text" id="input_durate" name="input_immune" class="form-control" placeholder="Jenis Imunisasi">
+			<input type="text" id="input_durate" name="input_immune" class="form-control" placeholder="Jenis Imunisasi" style="text-transform: uppercase;">
 		</div>
 		<button class="btn btn-success">SUBMIT</button>
 	</form>

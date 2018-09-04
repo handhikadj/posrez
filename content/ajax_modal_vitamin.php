@@ -2,9 +2,9 @@
 header('Content-Type: application/json');
 require_once $_SERVER['DOCUMENT_ROOT'].'/config/koneksi.php';
 
-$id_imunisasi = $_GET['id_imunisasi'];
+$id_vitamin = $_GET['id_vitamin'];
 
-$query = "SELECT jenis_imunisasi FROM imunisasi WHERE id_imunisasi='$id_imunisasi'";
+$query = "SELECT jenis_vitamin FROM vitamin WHERE id_vitamin='$id_vitamin'";
 $result = mysqli_query($db, $query);
 $row = mysqli_fetch_assoc($result);
 

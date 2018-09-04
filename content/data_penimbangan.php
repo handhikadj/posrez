@@ -319,5 +319,3 @@ if (empty($_GET['act'])) : ?>
 	</div>
 
 <?php endif ?>
-
-
