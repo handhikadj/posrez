@@ -86,7 +86,7 @@ $(function() {
 		source: function( request, response ) {
 
 			var idanak = $("#id_anaktimbang, #id_anaktimbang1, #id_anaktimbang2").val()
-			$.ajax( {
+			$.ajax({
 				url: "autocomplete_ajax.php?id_anak=" + idanak,
 				type: "GET",
 				dataType: "JSON",
@@ -116,7 +116,7 @@ $(function() {
 
 	$(window).scroll(function(){
 		if ($(this).scrollTop() > 225) $("#navbar.navbar-scrollers").addClass('fixed');
-		else $("#navbar.navbar-scrollers").removeClass('fixed');		
+		else $("#navbar.navbar-scrollers").removeClass('fixed')
 	})
 
 	$("#show-form-immune").click(function(e){
@@ -132,8 +132,42 @@ $(function() {
 		$("#show-form-immune").delay(710).show(200);
 	})
 
-	$(".for_imune_patch").click(function(e){
-		e.stopPropagation()
-		$(".form_in_tdimmune").toggle()
+	$(".for_imune_patch").click(function(){
+		var id_imunisasi = $(this).attr("rel")
+		$.ajax({
+			url: "../content/ajax_modal_imunisasi.php?id_imunisasi=" + id_imunisasi,
+			type: "GET",
+			dataType: "JSON",
+			success: function(response) {
+				console.log(response.data.jenis_imunisasi)
+				$("#patchimmune-in-modal").val(response.data.jenis_imunisasi)
+			},
+			error: function() {
+				alert('Terjadi Error');
+			}
+		});
 	})
-});
+
+	$("#form-patch-immune").submit(function(e){
+		e.preventDefault()
+
+		var id_imunisasi = $(".for_imune_patch").attr("rel"),
+			update_immune = $(this).serialize()
+		$.ajax({
+			url: "../content/ajax_update_imunisasi.php?id_imunisasi=" + id_imunisasi,
+			type: "POST",
+			data: update_immune,
+			dataType: "JSON",
+			success: function(response) {
+				alert(response.message)
+				location.reload()
+			},
+			error: function() {
+				alert('Terjadi Error');
+			}
+		});
+
+	})
+}); // end of document ready
+
+

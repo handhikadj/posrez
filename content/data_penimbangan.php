@@ -16,6 +16,7 @@ if (empty($_GET['act'])) : ?>
 				<thead>
 					<tr>
 						<th>Kode Timbang</th>
+						<th>Nama Anak</th>
 						<th>Tanggal Timbang</th>
 						<th>Usia Anak</th>
 						<th>Berat Badan</th>
@@ -31,14 +32,17 @@ if (empty($_GET['act'])) : ?>
 				<tbody>
 					<?php 
 					$tampil = mysqli_query($db, "SELECT id_penimbangan, 
-						DATE_FORMAT(tanggal_timbang, '%d-%m-%Y') as tanggal, 
+						DATE_FORMAT(tanggal_timbang, '%d-%m-%Y') as tanggal,
+						nama_anak,
 						usia, 
 						berat_badan,
 						lingkar_perut,
 						jenis_imunisasi,
 						jenis_vitamin,
 						saran 
-						FROM penimbangan 
+						FROM penimbangan
+						JOIN anak
+						ON penimbangan.id_anak=anak.id_anak
 						JOIN imunisasi 
 						ON penimbangan.id_imunisasi=imunisasi.id_imunisasi 
 						JOIN vitamin 
@@ -47,6 +51,7 @@ if (empty($_GET['act'])) : ?>
 					while($row=mysqli_fetch_array($tampil)) : ?>
 						<tr>
 							<td><?php echo $row['id_penimbangan'];?></td>
+							<td><?php echo $row['nama_anak']; ?></td>
 							<td><?php echo $row['tanggal'];?></td>
 							<td><?php echo $row['usia'];?></td>
 							<td><?php echo $row['berat_badan'];?></td>

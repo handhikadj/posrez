@@ -1,10 +1,12 @@
 <?php 
+
 $module=$_GET['module'];
 $syarat=$_GET['id'] ?? '';
 $tampil2=mysqli_query($db, "SELECT * FROM anak WHERE id_anak='$syarat'");
 $row2=mysqli_fetch_array($tampil2);
 
 if ($module == 'imunisasi') : 
+require_once 'imunisasi_modal.php';
 ?>
 <h4 style="text-align: center;">LIHAT IMUNISASI</h4><hr><br>
 <div class="container-immune">
@@ -45,9 +47,12 @@ if ($module == 'imunisasi') :
 					<td><?php echo $row3['jenis_imunisasi'] ?></td>
 					<?php 
 					if (!empty($_SESSION["nama_admin"])) : ?>
-						<td id="for_tdimune">
-							<!-- <a href="?module=imunisasi&act=edit&id=<?php echo $row3['id_imunisasi'];?>" class="btn btn-default">Perbarui</a>  -->
-							<a href="javascript:void(0)" class="btn btn-default for_imune_patch">Perbarui</a>
+						<td>
+							<a href="javascript:void(0)" 
+							class="btn btn-default for_imune_patch"
+							data-toggle="modal"
+							data-target="#modal-immune"
+							rel=" <?php echo $row3['id_imunisasi']; ?> ">Perbarui</a>
 							<a href="content/aksi_imunisasi.php?module=imunisasi&act=delete&id=<?php echo $row3['id_imunisasi'];?>" onclick="return confirm('Apakah anda yakin akan menghapus data ini?')"  class="btn btn-danger">Hapus</a>
 						</td>
 					<?php endif ?>

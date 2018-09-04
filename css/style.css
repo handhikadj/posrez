@@ -2,6 +2,17 @@ body {
     background:#9E9E9E;
 }
 
+#patchimmune-in-modal {
+    text-transform: uppercase;
+}
+
+.modal-immune-content {
+    margin-top: 200px;
+    margin-left: auto;
+    margin-right: auto;
+    width: 200px;
+}
+
 ul.ui-autocomplete {
     list-style: none;
 }

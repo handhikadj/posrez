@@ -8,10 +8,10 @@
 	<a href="?module=penimbangan"><i class="glyphicon glyphicon-tasks"></i> Penimbangan</a>
 </li>
 <li>
-	<a href="?module=imunisasi"><i class="glyphicon glyphicon-pushpin"></i> Imunisasi</a>
+	<a href="?module=cekimunisasi"><i class="glyphicon glyphicon-pushpin"></i> Imunisasi</a>
 </li>
 <li>
-	<a href="?module=vitamin"><i class="glyphicon glyphicon-tint"></i>  Vitamin</a>
+	<a href="?module=cekvitamin"><i class="glyphicon glyphicon-tint"></i>  Vitamin</a>
 </li>
 <li>
 	<a href="?module=datakematian"><i class="glyphicon glyphicon-file"></i> kematian</a>
