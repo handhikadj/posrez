@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Aug 28, 2018 at 04:48 PM
+-- Generation Time: Sep 04, 2018 at 09:38 AM
 -- Server version: 10.1.30-MariaDB
 -- PHP Version: 7.2.1
 
@@ -60,61 +60,6 @@ CREATE TABLE `anak` (
   `lingkar_kepala` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
---
--- Dumping data for table `anak`
---
-
-INSERT INTO `anak` (`id_anak`, `nama_anak`, `tanggal_lahir`, `jenis_kelamin`, `nama_ibu`, `nama_ayah`, `alamat`, `panjang_badan`, `berat_lahir`, `lingkar_kepala`) VALUES
-('B0001', 'asdasda', '2017-07-27', 'Laki-laki', 'asdasd', 'asdasd', 'asdasd', 0, 0, 0),
-('B00010', 'asdasda', '2017-07-27', 'Laki-laki', 'asdasd', 'asdasd', 'asdasd', 0, 0, 0),
-('B00011', 'asdasda', '2017-07-27', 'Laki-laki', 'asdasd', 'asdasd', 'asdasd', 0, 0, 0),
-('B00012', 'asdasda', '2017-07-27', 'Laki-laki', 'asdasd', 'asdasd', 'asdasd', 0, 0, 0),
-('B00013', 'asdasda', '2017-07-27', 'Laki-laki', 'asdasd', 'asdasd', 'asdasd', 0, 0, 0),
-('B00014', 'asdasda', '2017-07-27', 'Laki-laki', 'asdasd', 'asdasd', 'asdasd', 0, 0, 0),
-('B00015', 'asdasda', '2017-07-27', 'Laki-laki', 'asdasd', 'asdasd', 'asdasd', 0, 0, 0),
-('B00016', 'asdasda', '2017-07-27', 'Laki-laki', 'asdasd', 'asdasd', 'asdasd', 0, 0, 0),
-('B00017', 'asdasda', '2017-07-27', 'Laki-laki', 'asdasd', 'asdasd', 'asdasd', 0, 0, 0),
-('B00018', 'asdasda', '2017-07-27', 'Laki-laki', 'asdasd', 'asdasd', 'asdasd', 0, 0, 0),
-('B00019', 'asdasda', '2017-07-27', 'Laki-laki', 'asdasd', 'asdasd', 'asdasd', 0, 0, 0),
-('B0002', 'asdasda', '2017-07-27', 'Laki-laki', 'asdasd', 'asdasd', 'asdasd', 0, 0, 0),
-('B00020', 'asdasda', '2017-07-27', 'Laki-laki', 'asdasd', 'asdasd', 'asdasd', 0, 0, 0),
-('B00021', 'asdasda', '2017-07-27', 'Laki-laki', 'asdasd', 'asdasd', 'asdasd', 0, 0, 0),
-('B00022', 'asdasda', '2017-07-27', 'Laki-laki', 'asdasd', 'asdasd', 'asdasd', 0, 0, 0),
-('B00023', 'asdasda', '2017-07-27', 'Laki-laki', 'asdasd', 'asdasd', 'asdasd', 0, 0, 0),
-('B00024', 'asdasda', '2017-07-27', 'Laki-laki', 'asdasd', 'asdasd', 'asdasd', 0, 0, 0),
-('B00025', 'asdasda', '2017-07-27', 'Laki-laki', 'asdasd', 'asdasd', 'asdasd', 0, 0, 0),
-('B00026', 'asdasda', '2017-07-27', 'Laki-laki', 'asdasd', 'asdasd', 'asdasd', 0, 0, 0),
-('B00027', 'asdasda', '2017-07-27', 'Laki-laki', 'asdasd', 'asdasd', 'asdasd', 0, 0, 0),
-('B00028', 'asdasda', '2017-07-27', 'Laki-laki', 'asdasd', 'asdasd', 'asdasd', 0, 0, 0),
-('B00029', 'asdasda', '2017-07-27', 'Laki-laki', 'asdasd', 'asdasd', 'asdasd', 0, 0, 0),
-('B0003', 'asdasda', '2017-07-27', 'Laki-laki', 'asdasd', 'asdasd', 'asdasd', 0, 0, 0),
-('B00030', 'asdasda', '2017-07-27', 'Laki-laki', 'asdasd', 'asdasd', 'asdasd', 0, 0, 0),
-('B00031', 'asdasda', '2017-07-27', 'Laki-laki', 'asdasd', 'asdasd', 'asdasd', 0, 0, 0),
-('B00032', 'asdasda', '2017-07-27', 'Laki-laki', 'asdasd', 'asdasd', 'asdasd', 0, 0, 0),
-('B00033', 'asdasda', '2017-07-27', 'Laki-laki', 'asdasd', 'asdasd', 'asdasd', 0, 0, 0),
-('B00034', 'asdasda', '2017-07-27', 'Laki-laki', 'asdasd', 'asdasd', 'asdasd', 0, 0, 0),
-('B00035', 'asdasda', '2017-07-27', 'Laki-laki', 'asdasd', 'asdasd', 'asdasd', 0, 0, 0),
-('B00036', 'asdasda', '2017-07-27', 'Laki-laki', 'asdasd', 'asdasd', 'asdasd', 0, 0, 0),
-('B00037', 'asdasda', '2017-07-27', 'Laki-laki', 'asdasd', 'asdasd', 'asdasd', 0, 0, 0),
-('B00038', 'asdasda', '2017-07-27', 'Laki-laki', 'asdasd', 'asdasd', 'asdasd', 0, 0, 0),
-('B00039', 'asdasda', '2017-07-27', 'Laki-laki', 'asdasd', 'asdasd', 'asdasd', 0, 0, 0),
-('B0004', 'asdasda', '2017-07-27', 'Laki-laki', 'asdasd', 'asdasd', 'asdasd', 0, 0, 0),
-('B00040', 'asdasda', '2017-07-27', 'Laki-laki', 'asdasd', 'asdasd', 'asdasd', 0, 0, 0),
-('B00041', 'asdasda', '2017-07-27', 'Laki-laki', 'asdasd', 'asdasd', 'asdasd', 0, 0, 0),
-('B00042', 'asdasda', '2017-07-27', 'Laki-laki', 'asdasd', 'asdasd', 'asdasd', 0, 0, 0),
-('B00043', 'asdasda', '2017-07-27', 'Laki-laki', 'asdasd', 'asdasd', 'asdasd', 0, 0, 0),
-('B00044', 'asdasda', '2017-07-27', 'Laki-laki', 'asdasd', 'asdasd', 'asdasd', 0, 0, 0),
-('B00045', 'asdasda', '2017-07-27', 'Laki-laki', 'asdasd', 'asdasd', 'asdasd', 0, 0, 0),
-('B00046', 'asdasda', '2017-07-27', 'Laki-laki', 'asdasd', 'asdasd', 'asdasd', 0, 0, 0),
-('B00047', 'asdasda', '2017-07-27', 'Laki-laki', 'asdasd', 'asdasd', 'asdasd', 0, 0, 0),
-('B00048', 'asdasda', '2017-07-27', 'Laki-laki', 'asdasd', 'asdasd', 'asdasd', 0, 0, 0),
-('B00049', 'asdasda', '2017-07-27', 'Laki-laki', 'asdasd', 'asdasd', 'asdasd', 0, 0, 0),
-('B0005', 'asdasda', '2017-07-27', 'Laki-laki', 'asdasd', 'asdasd', 'asdasd', 0, 0, 0),
-('B0006', 'asdasda', '2017-07-27', 'Laki-laki', 'asdasd', 'asdasd', 'asdasd', 0, 0, 0),
-('B0007', 'asdasda', '2017-07-27', 'Laki-laki', 'asdasd', 'asdasd', 'asdasd', 0, 0, 0),
-('B0008', 'asdasda', '2017-07-27', 'Laki-laki', 'asdasd', 'asdasd', 'asdasd', 0, 0, 0),
-('B0009', 'asdasda', '2017-07-27', 'Laki-laki', 'asdasd', 'asdasd', 'asdasd', 0, 0, 0);
-
 -- --------------------------------------------------------
 
 --
@@ -125,14 +70,6 @@ CREATE TABLE `imunisasi` (
   `id_imunisasi` int(11) NOT NULL,
   `jenis_imunisasi` varchar(20) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
---
--- Dumping data for table `imunisasi`
---
-
-INSERT INTO `imunisasi` (`id_imunisasi`, `jenis_imunisasi`) VALUES
-(1, 'BCG'),
-(2, 'DPT 1');
 
 -- --------------------------------------------------------
 
@@ -147,13 +84,6 @@ CREATE TABLE `kematian` (
   `keterangan` varchar(50) NOT NULL,
   `stat` int(11) DEFAULT '1'
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
---
--- Dumping data for table `kematian`
---
-
-INSERT INTO `kematian` (`id_kematian`, `id_anak`, `tanggal_kematian`, `keterangan`, `stat`) VALUES
-('K0001', 'B00010', '2018-08-21', 'zzczxc', 1);
 
 -- --------------------------------------------------------
 
@@ -183,14 +113,6 @@ CREATE TABLE `vitamin` (
   `id_vitamin` int(11) NOT NULL,
   `jenis_vitamin` varchar(20) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
---
--- Dumping data for table `vitamin`
---
-
-INSERT INTO `vitamin` (`id_vitamin`, `jenis_vitamin`) VALUES
-(1, 'Vitamin A Biru'),
-(2, 'Vitamin A Merah');
 
 --
 -- Indexes for dumped tables
@@ -227,8 +149,8 @@ ALTER TABLE `kematian`
 ALTER TABLE `penimbangan`
   ADD PRIMARY KEY (`id_penimbangan`),
   ADD KEY `id_anak` (`id_anak`),
-  ADD KEY `penimbangan_imun` (`id_imunisasi`),
-  ADD KEY `penimbangan_vitamin` (`id_vitamin`);
+  ADD KEY `penimbangan_ibfk_2` (`id_imunisasi`),
+  ADD KEY `penimbangan_ibfk_3` (`id_vitamin`);
 
 --
 -- Indexes for table `vitamin`
@@ -247,6 +169,18 @@ ALTER TABLE `admin`
   MODIFY `id_admin` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
+-- AUTO_INCREMENT for table `imunisasi`
+--
+ALTER TABLE `imunisasi`
+  MODIFY `id_imunisasi` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `vitamin`
+--
+ALTER TABLE `vitamin`
+  MODIFY `id_vitamin` int(11) NOT NULL AUTO_INCREMENT;
+
+--
 -- Constraints for dumped tables
 --
 
@@ -261,8 +195,8 @@ ALTER TABLE `kematian`
 --
 ALTER TABLE `penimbangan`
   ADD CONSTRAINT `penimbangan_ibfk_1` FOREIGN KEY (`id_anak`) REFERENCES `anak` (`id_anak`),
-  ADD CONSTRAINT `penimbangan_imun` FOREIGN KEY (`id_imunisasi`) REFERENCES `imunisasi` (`id_imunisasi`),
-  ADD CONSTRAINT `penimbangan_vitamin` FOREIGN KEY (`id_vitamin`) REFERENCES `vitamin` (`id_vitamin`);
+  ADD CONSTRAINT `penimbangan_ibfk_2` FOREIGN KEY (`id_imunisasi`) REFERENCES `imunisasi` (`id_imunisasi`) ON DELETE CASCADE,
+  ADD CONSTRAINT `penimbangan_ibfk_3` FOREIGN KEY (`id_vitamin`) REFERENCES `vitamin` (`id_vitamin`) ON DELETE CASCADE;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

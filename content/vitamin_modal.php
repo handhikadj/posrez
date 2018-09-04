@@ -10,6 +10,7 @@
       	style="display: flex;" >
       		<div class="form-group" style="margin-bottom: 0;">
       			<div class="col-sm-12">
+              <input type="hidden" id="hidden_vitamin_patch">
         			<input type="text" class="form-control" name="jenis_vitamin" id="patchvitamin-in-modal">
         		</div>
         	</div>

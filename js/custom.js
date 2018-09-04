@@ -135,11 +135,11 @@ $(function() {
 	$(".for_imune_patch").click(function(){
 		var id_imunisasi = $(this).attr("rel")
 		$.ajax({
-			url: "../content/ajax_modal_imunisasi.php?id_imunisasi="+ id_imunisasi,
+			url: "../content/ajax_modal_imunisasi.php?id_imunisasi=" + id_imunisasi,
 			type: "GET",
 			dataType: "JSON",
 			success: function(response) {
-				console.log(response.data.jenis_imunisasi)
+				$("#hidden_immune_patch").val(response.data.id_imunisasi)
 				$("#patchimmune-in-modal").val(response.data.jenis_imunisasi)
 			},
 			error: function() {
@@ -151,10 +151,10 @@ $(function() {
 	$("#form-patch-immune").submit(function(e){
 		e.preventDefault()
 
-		var id_imunisasi = $(".for_imune_patch").attr("rel"),
+		var id_imunisasi = $("#hidden_immune_patch").val(),
 			update_immune = $(this).serialize()
 		$.ajax({
-			url: "../content/ajax_update_imunisasi.php?id_imunisasi="+ id_imunisasi,
+			url: "../content/ajax_update_imunisasi.php?id_imunisasi=" + id_imunisasi,
 			type: "POST",
 			data: update_immune,
 			dataType: "JSON",
@@ -172,11 +172,11 @@ $(function() {
 	$(".for_vitamin_patch").click(function(){
 		var id_vitamin = $(this).attr("rel")
 		$.ajax({
-			url: "../content/ajax_modal_vitamin.php?id_vitamin="+ id_vitamin,
+			url: "../content/ajax_modal_vitamin.php?id_vitamin=" + id_vitamin,
 			type: "GET",
 			dataType: "JSON",
 			success: function(response) {
-				console.log(response.data.jenis_vitamin)
+				$("#hidden_vitamin_patch").val(response.data.id_vitamin)
 				$("#patchvitamin-in-modal").val(response.data.jenis_vitamin)
 			},
 			error: function() {
@@ -188,10 +188,10 @@ $(function() {
 	$("#form-patch-vitamin").submit(function(e){
 		e.preventDefault()
 
-		var id_vitamin = $(".for_vitamin_patch").attr("rel"),
+		var id_vitamin = $("#hidden_vitamin_patch").val(),
 			update_vitamin = $(this).serialize()
 		$.ajax({
-			url: "../content/ajax_update_vitamin.php?id_vitamin="+ id_vitamin,
+			url: "../content/ajax_update_vitamin.php?id_vitamin=" + id_vitamin,
 			type: "POST",
 			data: update_vitamin,
 			dataType: "JSON",

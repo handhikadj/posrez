@@ -10,6 +10,7 @@
       	style="display: flex;" >
       		<div class="form-group" style="margin-bottom: 0;">
       			<div class="col-sm-12">
+              <input type="hidden" id="hidden_immune_patch">
         			<input type="text" class="form-control" name="jenis_immune" id="patchimmune-in-modal">
         		</div>
         	</div>
