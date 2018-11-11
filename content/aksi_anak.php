@@ -71,6 +71,3 @@ elseif ($module=='siswabaru' AND $act=='update'){
 									
 	 header('location:../../media.php?module=siswabaru&status=0');
 }
-
-
-?>

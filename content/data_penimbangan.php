@@ -211,7 +211,8 @@ if (empty($_GET['act'])) : ?>
 			<div class="form-group">
 				<label for="inputEmail3" class="col-sm-4 control-label">Kode Timbang</label>
 				<div class="col-sm-8">
-					<input type="text" class="form-control" disabled  name='id_penimbangan' value="<?php echo $row['id_penimbangan'];?>">
+
+					<input type="text" class="form-control" name='id_penimbangan' value="<?php echo $row['id_penimbangan'];?>" readonly>
 
 				</div>
 			</div>
